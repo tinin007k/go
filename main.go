@@ -172,7 +172,18 @@ func main() {
 	// timerSample()
 	// tickerSample()
 	// workerPoolsSample()
-	waitGroupSample()
+	// waitGroupSample()
+	strSlice := []string{"a", "b", "c", "d"}
+	slice2 := []int{1, 2, 3, 4, 5}
+	str1Slice, str2Slice := genericsSample(strSlice)
+	int1Slice, int2Slice := genericsSample(slice2)
+	fmt.Println(str1Slice, str2Slice)
+	fmt.Println(int1Slice, int2Slice)
+}
+
+func genericsSample[T any](val []T) (l1 []T, l2 []T) {
+	mid := len(val) / 2
+	return val[:mid], val[mid:]
 }
 
 func workerN1(id int, task int) {
